@@ -1,30 +1,39 @@
-# Product Customer Service
+# Finance Tracker Service
 
-**Product Customer Service** is a web-based platform designed to manage after-sales service workflows. It helps teams efficiently handle service orders and customer complaints, while also maintaining relevant master data such as products, regions, and branches.
+This repository contains a Spring Boot application for managing personal finances.  
+The application helps users record expenses, allocate budgets from salary, track savings, and even manage debts and obligations.  
+It is designed as a simple yet practical tool to improve financial planning and provide better visibility of income and spending.
+## Getting Started
 
-This application provides a centralized dashboard and structured role-based access to streamline post-sale service operations.
+### Table of Contents
+> - [API Documentation](#api-documentation)
+> - [Prerequisites](#prerequisites)
+> - [Project Structure](#project-structure)
+> - [Installation](#installation)
+> - [API Usage](#api-usage)
+> - [Author](#author)
+> - [License](#license)
+
+---
+
+## API Documentation
+
+Backend: https://fintrack-api.hasanalmunawar.my.id/api/swagger-ui
+
+Actuator: https://fintrack-api.hasanalmunawar.my.id/api/actuator/info
 
 ---
 
-## Tech Stack
-
-This project leverages a modern and robust technology stack to ensure scalability, maintainability, and performance:
-
-- **Spring Boot** – Powers the backend with a fast and reliable RESTful API framework.
-- **Docker** – Ensures consistent development and deployment environments using containerization.
-- **PostgreSQL** – A powerful, open-source relational database system for secure and efficient data management.
-
-
-## Features
-
--  **Dashboard Analytics** – Overview of key service metrics
--  **Master Data Management** – Products, colors, regions, branches, etc.
--  **Service Order Management** – Track and process customer service requests
--  **Menu Access Control** – Customizable navigation based on roles
--  **Role & Permission Management** – Define and assign access authority
--  **User Management** – Create, edit, and manage system users
+### Prerequisites
+- Java SDK 17 or above
+- Apache Maven 3.4.1 or above
+- MariaDb 
+- Jasper Report
+- Gmail Service
 
 ---
+
+
 
 ## Project Structure
 
@@ -32,6 +41,13 @@ This project leverages a modern and robust technology stack to ensure scalabilit
 📁 github/                     
 └── 📁 workflows/               
 │    └── 📄 main.yaml            # CI/CD pipeline (e.g., build, test, deploy)
+│
+📁 docs/                     
+└──📄 FINANCE-TRACKER.postman_collection.json            # Postman collection API
+│
+📁 nginx/                     
+└──📄 fintrack-api.conf           # Proxxy setup
+│    
 │
 📁 src/
 └── 📁 main/
@@ -71,8 +87,6 @@ This project leverages a modern and robust technology stack to ensure scalabilit
 │      
 │    
 │
-📁 sql/
-└── 📄 after_sales.sql                              # Skema & dummy data SQL
 │
 📄 Dockerfile                                        # Build image Spring Boot untuk Docker
 📄 docker-compose.yml                               # Running container database + Spring Boot
@@ -85,37 +99,72 @@ This project leverages a modern and robust technology stack to ensure scalabilit
 --- 
 ## Installation Guide
 
+### API Usage
+- [Postman Collection](docs/FINANCE-TRACKER.postman_collection.json)
+
+### 
+
+
 Follow the steps below to install and run the System locally.
 
 ---
 
-### 1. Clone the Repository
+### Installation
 
-First, clone the project from GitLab:
+1. Clone the repo `git clone https://github.com/hasanalmunawr/finance-tracker.git`
+2. Install Maven Dependencies `mvn clean install`
+3. Configure properties in `application-dev.yml` (for development) file
+    ```yml
+    spring:
+      datasource:
+          url: jdbc:mariadb://<your-database-host>/financial_tracker # The URL of your MariaDb database
+          username: <your-username> # The username of your MariaDb database
+          password: <your-password> # The password of your MariaDb database
+      jpa:
+          hibernate:
+            naming:
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            ddl-auto: update # (Optional) This option automatically updates the database schema to match your entities.
+          properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MariaDBDialect # This option specifies the SQL dialect of your database
+                format_sql: true # (Optional) This option pretty-prints SQL statements in the console
 
-```bash
-  git clone https://github.com/hasanalmunawr/product-customer-service.git
-  cd product-customer-service
-```
+      mail:
+        host: ${MAIL_HOST}
+        port:  ${MAIL_PORT}
+        username: ${MAIL_USERNAME}
+        password: ${MAIL_PASSWORD}
+        properties:
+          mail:
+            smtp:
+              auth: true
+              ssl:
+                enable: true
+              socketFactory:
+                port: 465
+                class: javax.net.ssl.SSLSocketFactory
+                fallback: false
+          transport:
+            protocol: smtp
+        default-encoding: UTF-8
+    ```
+4. Run test `mvn test`
+5. Run the application `mvn spring-boot:run`
 
-### 2.  Install Dependencies
-Install all necessary backend :
-```bash
-  mvn install           
-```
+---
 
 
-### Default Admin Login
-If you import the SQL file, you can log in using the following credentials:
+### Author
+- [Hasan Almunawar](https://www.linkedin.com/in/hasan-almunawar/)
+- [Email](mailto:hasanalmunawar09@gmail.com)
 
-- Email: `adminsuper@gmail.com`
-- Password: `12345678`
+---
 
---- 
-## Developer
-**Hasan Almunawar**  
-📧 Email: [hasanalmunawar9@gmail.com](mailto:hasanalmunawar9@gmail.com)  
-📅 Year: 2025
+### License
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
 
 
 
