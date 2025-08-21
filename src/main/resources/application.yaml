@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 50MB
+
+  # SETTING THE FORMAT OF VARIABLE RESPONSE AND REQUEST ON JSON BECOME SNAKE_CASE
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  # SETTING THE FORMAT OF COLUMN ON TABLE (SNAKE_CASE)
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+
+springdoc:
+  default-produces-media-type: application/json
+
+server:
+  servlet:
+    context-path: /api
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace

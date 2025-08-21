@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/financial_tracker
+    username: root
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    #    use_sql_comments: true
+    properties:
+      hibernate:
+#        format_sql: true
+    database-platform: org.hibernate.dialect.MariaDBDialect
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: hasanalmunawar.it@gmail.com
+    password: wdktgjojfmwoydks
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+      transport:
+        protocol: smtp
+    default-encoding: UTF-8
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days --> not used
+  mailing:
+    frontend:
+      activation-url: http://localhost:5173
+server:
+  port: 8088
