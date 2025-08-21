@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${MARIADB_URL:jdbc:mariadb://8.215.195.63:3306/finance_tracker}
-    username: ${MARIADB_USER:badiro}
-    password: ${MARIADB_PASSWORD:badiro07}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
@@ -13,10 +13,10 @@ spring:
         format_sql: true
     database-platform: org.hibernate.dialect.MariaDBDialect
   mail:
-    host: smtp.gmail.com
-    port: 465
-    username: hasanalmunawar.it@gmail.com
-    password: wdktgjojfmwoydks
+    host: ${MAIL_HOST}
+    port:  ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
