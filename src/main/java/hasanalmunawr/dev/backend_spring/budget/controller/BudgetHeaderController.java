@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Endpoint.Base.BUDGET_HEADER)
-@Tag(name = "Budget Header Controller", description = "API for managing service-order-related operations.")
+@Tag(name = "Budget Header Controller", description = "API for managing budget-header related operations.")
 public class BudgetHeaderController {
 
     @Autowired

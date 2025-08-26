@@ -15,12 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static hasanalmunawr.dev.backend_spring.sales.api.swagger.ServiceOrderExample.SERVICE_ORDER_CREATE_RESPONSE_SUCCESS;
-import static hasanalmunawr.dev.backend_spring.sales.api.swagger.ServiceOrderExample.SERVICE_ORDER_REQUEST_JSON;
-
 @RestController
 @RequestMapping(Endpoint.Base.DEBT)
-@Tag(name = "Debt Controller", description = "API for managing service-order-related operations.")
+@Tag(name = "Debt Controller", description = "API for managing debt related operations.")
 public class DebtController {
 
     @Autowired

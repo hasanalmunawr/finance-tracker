@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Endpoint.Base.AUTHENTICATION)
-@Tag(name = "Authentication Controller", description = "API for managing auth-related operations.")
+@Tag(name = "Authentication Controller", description = "API for managing auth related operations.")
 public class AuthController {
 
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);

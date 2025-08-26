@@ -2,7 +2,6 @@ package hasanalmunawr.dev.backend_spring.bankAccount.repository;
 
 import hasanalmunawr.dev.backend_spring.bankAccount.model.BankAccount;
 import hasanalmunawr.dev.backend_spring.base.repository.BaseRepository;
-import hasanalmunawr.dev.backend_spring.sales.model.ServiceOrder;
 import hasanalmunawr.dev.backend_spring.user.model.UserModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

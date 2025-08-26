@@ -7,7 +7,6 @@ import hasanalmunawr.dev.backend_spring.budget.repository.BudgetRepository;
 import hasanalmunawr.dev.backend_spring.category.repository.CategoryRepository;
 import hasanalmunawr.dev.backend_spring.dashboard.repository.DashboardRepository;
 import hasanalmunawr.dev.backend_spring.debts.repository.DebtRepository;
-import hasanalmunawr.dev.backend_spring.sales.repository.ServiceOrderRepository;
 import hasanalmunawr.dev.backend_spring.transaction.repository.TransactionRepository;
 import hasanalmunawr.dev.backend_spring.user.repository.CodeVerifyRepository;
 import hasanalmunawr.dev.backend_spring.user.repository.PasswordResetTokenRepository;
@@ -22,9 +21,6 @@ public class GeneralRepository {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private ServiceOrderRepository serviceOrderRepository;
 
     @Autowired
     private BankAccountRepository bankAccountRepository;
