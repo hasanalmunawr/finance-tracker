@@ -43,6 +43,11 @@ public class WebConfig implements WebMvcConfigurer {
             "/actuator/*",
     };
 
+    private final static String[] WHITE_LIST_ALLOWED_ORIGINS = {
+            "http://localhost:5173",
+            "https://fintrack.hasanalmunawar.my.id",
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
@@ -63,7 +68,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // izinkan semua endpoint
-                .allowedOrigins("http://localhost:5173", "https://fintrack.hasanalmunawar.my.id") // ganti dengan port Vue-mu
+                .allowedOrigins(WHITE_LIST_ALLOWED_ORIGINS) // ganti dengan port Vue-mu
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true); // jika kamu menggunakan cookie / session
