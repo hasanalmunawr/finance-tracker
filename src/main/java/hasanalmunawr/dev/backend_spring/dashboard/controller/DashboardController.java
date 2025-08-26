@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(Endpoint.Base.DASHBOARD)
-@Tag(name = "Dashboard Controller", description = "API for managing service-order-related operations.")
+@Tag(name = "Dashboard Controller", description = "API for managing dashboard related operations.")
 public class DashboardController {
 
     @Autowired

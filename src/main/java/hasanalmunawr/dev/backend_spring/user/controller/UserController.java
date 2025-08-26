@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Endpoint.Base.USER)
-@Tag(name = "User Controller", description = "API for managing auth-related operations.")
+@Tag(name = "User Controller", description = "API for managing user related operations.")
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);

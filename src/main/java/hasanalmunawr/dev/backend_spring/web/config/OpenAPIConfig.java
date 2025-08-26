@@ -16,36 +16,51 @@ public class OpenAPIConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
+
+        Server currentServer = new io.swagger.v3.oas.models.servers.Server();
+        currentServer.setDescription("current");
+        currentServer.setUrl("/");
+
         return new OpenAPI()
                 .info(new Info()
-                        .title("Sales Management API")
-                        .version("1.0.0")
+                        .title("Finance Tracker API")
+                        .version("1.1.2")
                         .description("""
-                                This API provides a full suite of features for managing sales processes, including:
-                                
-                                - Customer and Product Management
-                                - Service Order Handling
-                                - Branch Operations
-                                - Reporting & Analytics
-                                
-                                Use the endpoints responsibly and refer to the documentation for required request formats.
+                                The Finance Tracker API provides a complete set of features 
+                                to help you manage and monitor your financial activities.
+
+                                **Features:**
+                                - Record Transactions
+                                - Bank Account Records
+                                - Transaction Categories
+                                - Budgeting
+                                - Debt Records
+
+                                Use the endpoints responsibly and refer to this documentation 
+                                for details on request formats and usage guidelines.
                                 """)
                         .contact(new Contact()
-                                .name("IT Support")
-                                .url("https://your-company.com/support")
-                                .email("support@your-company.com"))
+                                .name("Developer")
+                                .url("https://hasanalmunawar.my.id")
+                                .email("hasanalmunawar.it@gmail.com"))
                         .license(new License()
                                 .name("Apache 2.0")
                                 .url("https://www.apache.org/licenses/LICENSE-2.0.html"))
                 )
-                .servers(List.of(
-                        new Server().url("http://localhost:8080").description("Local Development Server"),
-                        new Server().url("https://api.your-company.com").description("Production Server")
-                ))
+                .servers(
+                        List.of(
+                               /* new Server()
+                                        .url("http://localhost:8080")
+                                        .description("Local Development Server"),
+                                new Server()
+                                        .url("https://fintrack-api.hasanalmunawar.my.id")
+                                        .description("Production Server")*/
+                                currentServer
+                        )
+                )
                 .externalDocs(new ExternalDocumentation()
                         .description("Project Wiki")
-                        .url("https://github.com/your-org/sales-management-api/wiki")
-                );
+                        .url("https://github.com/your-org/sales-management-api/wiki"));
     }
 
 }
