@@ -23,6 +23,19 @@ server:
   servlet:
     context-path: /api
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+info:
+  app:
+    name: Finance Tracker API
+    version: 1.1.2
+    author: Hasan Almunawar
 
 logging:
   level:

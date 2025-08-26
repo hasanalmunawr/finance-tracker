@@ -1,8 +1,8 @@
-name: Backend Product Customer Service
+name: Finance Tracker API
 #
 #on:
 #  push:
-#    branches: [ main, backend-spring ]
+#    branches: [ main, lenovo-dev ]
 #  pull_request:
 #    branches: [ main ]
 #
@@ -11,9 +11,9 @@ name: Backend Product Customer Service
 #    runs-on: ubuntu-latest
 #
 #    env:
-#      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-#      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-#      POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+#      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+#      DATABASE_USER: ${{ secrets.DATABASE_USER }}
+#      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
 #      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
 #
 #    steps:

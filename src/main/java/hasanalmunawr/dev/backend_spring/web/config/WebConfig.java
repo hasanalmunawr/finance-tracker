@@ -38,7 +38,9 @@ public class WebConfig implements WebMvcConfigurer {
             "/configuration/security",
             "/swagger-ui/**",
             "/webjars/**",
-            "/swagger-ui.html"
+            "/swagger-ui.html",
+            "/actuator",
+            "/actuator/*",
     };
 
     @Bean

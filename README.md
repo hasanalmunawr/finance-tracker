@@ -20,7 +20,7 @@ It is designed as a simple yet practical tool to improve financial planning and 
 
 Backend: https://fintrack-api.hasanalmunawar.my.id/api/swagger-ui
 
-Actuator: https://fintrack-api.hasanalmunawar.my.id/api/actuator/info
+Actuator: https://fintrack-api.hasanalmunawar.my.id/api/actuator
 
 ---
 
